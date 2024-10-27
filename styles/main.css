@@ -1,0 +1,235 @@
+@layer reset, init, design;
+
+@import url(normalize.css) layer(reset);
+@import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap) layer(init);
+
+@layer init {
+    :root {
+        --primary: #66d4d4;
+        --text: #000000;
+        --black: #000000;
+        --light: #FFFFFF;
+        --gray: #3B3E40;
+    }
+    html {
+        font-family: "Open Sans", sans-serif;
+        color: var(--black);
+        font-weight: 400;
+        scroll-behavior: smooth;
+    }
+    .page__logo::before {
+        content: "";
+        display: block;
+        background: center / contain no-repeat transparent;
+        /*
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        */
+        background-image: url("../images/logo.svg");
+        width: auto; /*velikost rodiči*/
+        height: 100%;
+        font-size: 1.5em;
+    }
+    .page__logo > span {
+        display: none;
+    }
+}
+
+/* VRSTVA PRO VAŠE STYLY */
+@layer design {
+    /*Header*/
+
+   .image-responsive {
+    display: block;
+    width: 100%; /*height: 100% = default*/
+   }
+
+   .page__header {
+    background-image: url(../images/header-2560w.webp);
+    background-size: cover;
+    background-position: left top;
+    padding: 1em;
+   }
+
+   /*Main - 1 / all*/
+
+   .page__logo {
+    display: block; /*tlačítko*/
+    padding: 1em;
+    height: 2em;
+    aspect-ratio: 42 / 24;
+    margin: 0 auto; /*self center*/ /*auto -> stejná pravá, stejná levá*/
+   }
+
+   .page__logo-container {
+    text-align: center;
+   }
+
+   .page__intro {
+    color: var(--light, white); /*pokud není definovaná barva - light -> bude white*/
+   }
+
+   .page__section {
+    padding: 1em;
+   }
+
+   .page__content {
+    padding: 1em;
+    max-width: 960px;
+    margin: 0 auto;
+   }
+
+   .picture-box {
+    margin: 0; /*figure -> definovat margin*/
+   }
+
+   .picture-box__figcaption {
+    font-size: .8em; /*od rodiče*/ /*0.8em z figure*/
+    color: var(--gray, gray);
+    text-align: center;
+    margin-top: .75em; /*vždy z font size čerpá velikost*/
+   }
+
+   /*Button*/
+
+   .button {
+    display: inline-block;
+    background-color: var(--primary, teal);
+    color: var(--light, white);
+    border-radius: 0.5em;
+    font-weight: 700;
+    padding: 1em 2em;
+    text-decoration: none;
+    transition: .4s all;
+   }
+
+   .button:hover {
+    text-decoration: underline;
+    text-decoration-thickness: .05em;
+    background-color: var(--light, white);
+    color: var(--black, black);
+   }
+
+   @media (prefers-color-scheme: light) {
+    .button--light {
+        background-color: var(--light, white);
+        color: var(--text, black);
+       }
+    
+       .button--light:hover {
+        background-color: var(--black, black);
+        color: var(--light, white);
+       }
+   }
+
+   .text-h3 {
+    font-size: 1.25em;
+    font-weight: 700;
+    margin-bottom: 1em;
+   }
+
+   .outline-box {
+    border: .2em solid var(--primary, aqua);
+    padding: 1em;
+    margin: 1em 0;
+   }
+
+   .list > li::marker {
+    color: var(--primary, aqua);
+   }
+
+   /*Main - 2*/
+
+   .product {
+    padding: 1em;
+    max-width: 24em;
+    display: inline-block;
+   }
+
+   .advertisement {
+    display: block;
+    text-align: center;
+    padding: 1em;
+    height: 18em;
+    background-color: var(--gray, gray);
+    color: var(--light, white);
+   }
+
+   .advertisement h2 {
+    display: block;
+    height: 0em; /*definovat výšku*/
+    font-size: clamp(.5em, 5vw + .5em, 3em);
+    margin-top: 1em;
+   }
+
+   .advertisement h2 span {
+    font-size: 2em;
+   }
+
+   .advertisement p {
+    display: block; 
+    padding: 4em 0em 0em;
+   }
+
+   .advertisement a {
+    display: inline-block;
+   }
+
+   /*Main - 3*/
+
+   .text-h2 {
+    margin-top: -0.8em; /*margin lze dat do (-)*/
+    font-weight: 720;
+   }
+
+   .gallery {
+    --indent: 0.5em; /*pouze hodnoty*/
+    margin: calc(-1 * var(--indent));
+    line-height: 0;
+   }
+
+   .gallery__item { /*nastavit display: block*/
+    display: inline-block;
+    margin: var(--indent);
+   }
+
+   /*Gallery - responsive*/
+   
+   @media screen and (min-width: 768px) {
+    .gallery__item {
+        display: inline-block;
+        width: calc(50% - 2 * var(--indent));
+    }
+
+    .gallery__item--100w {
+        width: calc(100% - 2 * var(--indent));
+    }
+   }
+
+   /*Footer*/
+
+   .page__footer {
+    display: block;
+    background-color: var(--gray, gray);
+    border: 2px solid var(--gray, gray);
+    height: 4.5em;
+    margin-top: 5em;
+    margin-bottom: 0;
+    text-align: center; /*text - align*/
+   }
+
+   .page__footer a {
+    display: inline-block;
+    margin-top: 0.5em;
+    padding: 1em;
+    text-decoration: none;
+    color: var(--light, white);
+    transition: .5s all;
+   }
+
+   .page__footer a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: .01em;
+   }
+}
