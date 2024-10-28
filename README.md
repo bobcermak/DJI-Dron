@@ -1,2 +1,3 @@
 # DJI Dron
-# Autor: Bohuslav Čermák
+# Autor: Bob Čermák
+# https://bobcermak.github.io/DJI-Dron/
