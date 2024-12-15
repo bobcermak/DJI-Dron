@@ -1,3 +1,4 @@
-# DJI Dron
-# Autor: Bob Čermák
-# https://bobcermak.github.io/DJI-Dron/
+# Dron DJI Mini 4 Pro
+[Náhled webu](https://bobcermak.github.io/DJI-Dron/)
+
+Autor: Bob Čermák
